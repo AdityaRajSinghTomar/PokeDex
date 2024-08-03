@@ -1,0 +1,15 @@
+.searchWrapper {
+  margin: 0 auto;
+}
+
+#pokemonNameSearch {
+  margin-top: 1rem;
+  width: 500px;
+  padding: 1rem;
+  font-family: "Courier New", Courier, monospace;
+  font-variant: small-caps;
+  font-size: 20px;
+  letter-spacing: 3px;
+  border-radius: 7px;
+  border: 1px solid;
+}
