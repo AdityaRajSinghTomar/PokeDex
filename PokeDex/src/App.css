@@ -1,0 +1,22 @@
+#pokedexHeading {
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-variant: small-caps;
+  font-size: 60px;
+  letter-spacing: 3px;
+}
+
+#pokedexHeading > .headLink:hover {
+  background-color: black;
+  color: white;
+}
+
+.headLink {
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.3s, color 0.5s;
+}
+
+.outer {
+}

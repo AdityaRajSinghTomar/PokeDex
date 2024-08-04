@@ -12,7 +12,8 @@ function PokeList() {
   async function downloadPokemons() {
     setIsLoading(true);
     const response = await axios.get(PokeURL); //Download list of 20 Pokemons
-    const Results = response.data.results; //Get array of Pokemons from result
+    const Results = response.data.results;
+    console.log(Results[0].url); //Get array of Pokemons from result
     setn(response.data.next);
     setp(response.data.previous);
     const pokemonResultsPromise = Results.map((p) => axios.get(p.url)); //Iterating over an array of pokemons, and using their url, creating array of promises
@@ -25,7 +26,9 @@ function PokeList() {
       return {
         id: pokemon.id,
         name: pokemon.name,
-        image: pokemon.sprites.other.dream_world.front_default,
+        image: pokemon.sprites.other.dream_world.front_default
+          ? pokemon.sprites.other.dream_world.front_default
+          : pokemon.sprites.other.showdown.front_default,
         types: pokemon.types
       };
     });
@@ -50,11 +53,13 @@ function PokeList() {
         </button>
       </div>
       <div className="pokemonList">
-        {isLoading
-          ? "Loading..."
-          : pokeList.map((p) => (
-              <Pokemon name={p.name} image={p.image} key={p.id} />
-            ))}
+        {isLoading ? (
+          <div className="Load">Loading</div>
+        ) : (
+          pokeList.map((p) => (
+            <Pokemon name={p.name} image={p.image} key={p.id} id={p.id} />
+          ))
+        )}
       </div>
     </div>
   );

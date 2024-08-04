@@ -1,0 +1,57 @@
+div {
+  font-family: "Courier New", Courier, monospace;
+  font-variant: small-caps;
+  letter-spacing: 3px;
+  font-weight: 600;
+  font-size: xx-large;
+}
+
+div > div > img {
+  height: 200px;
+  width: 200px;
+}
+
+.Name {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 70px;
+}
+
+.W,
+.H,
+.T,
+.T2,
+.Name,
+div > div > img {
+  transition: background-color 0.3s;
+  border: none;
+  border-radius: 10px;
+}
+
+.detailWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+
+.W:hover,
+.H:hover,
+div > div > img:hover,
+.Name:hover {
+  background-color: rgb(16, 240, 165);
+}
+
+.T {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.T2:hover {
+  background-color: #ccc;
+}
+
+.T2 {
+  margin-left: 0.5rem;
+}

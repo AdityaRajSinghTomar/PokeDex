@@ -2,11 +2,3 @@
   display: flex;
   flex-direction: column;
 }
-
-#pokedexHeading {
-  margin: 0 auto;
-  font-family: "Courier New", Courier, monospace;
-  font-variant: small-caps;
-  font-size: 60px;
-  letter-spacing: 3px;
-}
