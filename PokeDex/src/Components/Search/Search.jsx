@@ -4,11 +4,9 @@ function Search() {
   return (
     <>
       <div className="searchWrapper">
-        <input
-          id="pokemonNameSearch"
-          type="text"
-          placeholder="PokeMon Name..."
-        />
+        <div id="pokemonNameSearch">
+          <input type="text" placeholder="PokeMon Name..." />
+        </div>
         <PokeList />
       </div>
     </>

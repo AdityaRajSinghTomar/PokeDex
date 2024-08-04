@@ -3,6 +3,11 @@
 }
 
 #pokemonNameSearch {
+  display: flex;
+  justify-content: center;
+}
+
+#pokemonNameSearch > input {
   margin-top: 1rem;
   width: 500px;
   padding: 1rem;
