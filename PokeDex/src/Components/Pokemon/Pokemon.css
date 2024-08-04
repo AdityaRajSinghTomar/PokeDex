@@ -1,0 +1,19 @@
+.pokeListCard {
+  border: 3px solid black;
+  margin-top: 1rem;
+  border-radius: 10px;
+  background-color: white;
+  transition: background-color 0.3s;
+}
+
+.pokeListCard:hover {
+  background-color: rgb(255, 255, 175);
+  border: none;
+}
+
+.pokeCardName {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 600;
+  font-style: oblique;
+}
