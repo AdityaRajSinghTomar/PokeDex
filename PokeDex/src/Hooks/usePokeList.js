@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function usePokeList(url) {
+function usePokeList() {
   // const [PokeURL, setURL] = useState("https://pokeapi.co/api/v2/pokemon");
   // const [pokeList, setPokeList] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
@@ -10,7 +10,7 @@ function usePokeList(url) {
   const [state, setState] = useState({
     pokeList: "",
     isLoading: true,
-    pokeURL: url,
+    pokeURL: "https://pokeapi.co/api/v2/pokemon",
     next: "",
     prev: ""
   });
@@ -19,14 +19,13 @@ function usePokeList(url) {
     setState((state) => ({ ...state, isLoading: true }));
     const response = await axios.get(state.pokeURL); //Download list of 20 Pokemons
     const Results = response.data.results;
+
     //Get array of Pokemons from result
     setState((state) => ({
       ...state,
       next: response.data.next,
       prev: response.data.previous
     }));
-    console.log(`List ${JSON.stringify(response.pokemon)}`);
-
     const pokemonResultsPromise = Results.map((p) => axios.get(p.url)); //Iterating over an array of pokemons, and using their url, creating array of promises
     const pokemonData = await axios.all(pokemonResultsPromise);
     //Passing that promise array to axios.all

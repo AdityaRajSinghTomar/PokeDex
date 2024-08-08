@@ -22,7 +22,8 @@ div > div > img {
 .T,
 .T2,
 .Name,
-div > div > img {
+div > div > img,
+div ul > li:hover {
   transition: background-color 0.3s;
   border: none;
   border-radius: 10px;
@@ -39,7 +40,8 @@ div > div > img {
 .W:hover,
 .H:hover,
 div > div > img:hover,
-.Name:hover {
+.Name:hover,
+div ul > li:hover {
   background-color: rgb(16, 240, 165);
 }
 

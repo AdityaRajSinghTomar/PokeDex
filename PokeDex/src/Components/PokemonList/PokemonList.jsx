@@ -3,7 +3,7 @@ import Pokemon from "../Pokemon/Pokemon";
 import usePokeList from "../../Hooks/usePokeList";
 
 function PokeList() {
-  const { state, setState } = usePokeList("https://pokeapi.co/api/v2/pokemon");
+  const { state, setState } = usePokeList(false);
 
   return (
     <div className="pokemonListWrapper">

@@ -1,27 +1,11 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./PokeDetails.css";
+import usePokeDetails from "../../Hooks/usePokeDetails";
 
 function PokeDetails() {
   const { id } = useParams();
-  const [poke, setPoke] = useState([]);
-  async function loadPoke() {
-    const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  const { poke } = usePokeDetails(id);
 
-    setPoke({
-      name: response.data.name,
-      image: response.data.sprites.other.dream_world.front_default
-        ? response.data.sprites.other.dream_world.front_default
-        : response.data.sprites.other.showdown.front_default,
-      weight: response.data.weight,
-      height: response.data.height,
-      types: response.data.types.map((t) => t.type.name)
-    });
-  }
-  useEffect(() => {
-    loadPoke();
-  }, []);
   return (
     <div className="detailWrapper">
       <div>
@@ -44,6 +28,16 @@ function PokeDetails() {
             </div>
           ))}
       </div>
+      {poke.types && poke.similar && (
+        <div>
+          more {poke.types[0]} type Pokemons
+          <ul>
+            {poke.similar.map((p) => (
+              <li key={p.pokemon.name}> {p.pokemon.name} </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
